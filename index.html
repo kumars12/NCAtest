@@ -1,90 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script>
- $(document).ready(function() {
-    var str = '[{"title": "Live: GREG INGLIS TO ANNOUNCE NRL RETIREMENT", "imageUrl": "", "intro": "Rabbiohs Star Greg inglis has arrived at South Sydney headquarters and will front a media conference later this morning to announce his retirement from rugby league", "publishedOn": "2m", "numberOfComment": "2"}]'
-        data = $.parseJSON(str);
-    $.each(data, function() {
-        var html = '<div class="person-list-item"><div>' + this.title + '</div><div>' + this.imageUrl  + this.intro + this.publishedOn +
-        this.numberOfComment +
-        '</div></div>';
-        $('#person-list').append(html);
-    });
-});
-</script>
-
-<style>
-* {box-sizing: border-box;}
-
-body { 
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.header {
-  overflow: hidden;
-  background-color: #f1f1f1;
-  padding: 20px 10px;
-}
-
-.header a {
-  float: left;
-  color: black;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px; 
-  line-height: 25px;
-  border-radius: 4px;
-}
-
-.header a.logo {
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.header a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.header a.active {
-  background-color: dodgerblue;
-  color: white;
-}
-
-.header-right {
-  float: right;
-}
-
-@media screen and (max-width: 500px) {
-  .header a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-  
-  .header-right {
-    float: none;
-  }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link href="css/style.css" rel="stylesheet">
 </head>
+
 <body>
- <div style="width: 100%;">
-        <div style="width: 50%; height: 100px; float: left;"> 
-          <img src="img_girl.jpeg" alt="Person" width="500" height="600">
+    <div class="page d-flex">
+        <div class="leftSide">
+            <div class="topBannerSec mb-3">
+                <img src="images/top_header.png" alt="img">
+            </div>
+            <div class="blogListSec">
+                <ul class="d-flex flex-wrap" id="person-list"></ul>
+            </div>
         </div>
-        <div style="margin-left: 50%; height: 100px;"> 
-        <div id="person-list"></div>
-            
+        <div class="rightSide">
+            <div class="addWorkItem mb-3"><img src="images/right_top_ad.png" alt="img"></div>
+            <div class="addWorkItem"><img src="images/right_bottom_ad.png" alt="img"></div>
         </div>
     </div>
-
-
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var str = '[{"title": "Live: GREG INGLIS TO ANNOUNCE NRL RETIREMENT", "imageUrl": "person_in_jacket.png", "intro": "Rabbiohs Star Greg inglis has arrived at South Sydney headquarters and will front a media conference later this morning to announce his retirement from rugby league", "publishedOn": "2m", "numberOfComment": "1"}, {"title": "Opal Tower units still closed as work only approved now", "imageUrl": "girl.png", "intro": "EXCLUSIVE people are still unable to move back into almost half the apartments in Opal Tower more than three months after cracks appeared in the trouble-plagued building and final rectification works have only just been given the green light.", "publishedOn": "1h", "numberOfComment": "1"}, {"title": "One Nation support has crashed:Newspoll", "imageUrl": "persons_multiple_faces.png", "intro": "", "publishedOn": "1h", "numberOfComment": "1"}, {"title": "two fake cops robbed Sydney currency exchange shop", "imageUrl": "person_in_black_white.png", "intro": "", "publishedOn": "3h", "numberOfComment": "1"}]'
+            data = $.parseJSON(str);
+            $.each(data, function() {
+                var html = '<li> <div class="blogImg"><img src="images/' + this.imageUrl + '" alt="img"></div> <div class="blogDsec"> <h2 class="h2">' + this.title + '</h2>  <p>' + this.intro + '</p> <div class="blogMeta d-flex pt-2"> <span class="icons d-flex align-items-center me-2"><i class="fas fa-clock me-1"></i> ' + this.publishedOn + '</span> <span class="icons d-flex align-items-center"><i class="far fa-comment-alt me-1"></i> ' + this.numberOfComment + '</span> </div> </div> </li>';
+                $('#person-list').append(html);
+            });
+        });
+    </script>
 </body>
+
 </html>
